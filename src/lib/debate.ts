@@ -16,13 +16,13 @@ async function speak(spec: AgentSpec, idea: string, transcript: Utterance[]) {
   const openai = getOpenAI();
   const model = getModelFor("agent");
 
-  const content = `Contexto del debate hasta ahora (puedes discrepar con respeto y aportar valor nuevo):
+  const content = `Debate context so far (you may respectfully disagree and add new value):
 
-${transcript.length ? renderTranscript(transcript) : "(aún no hay intervenciones)"}
+${transcript.length ? renderTranscript(transcript) : "(no interventions yet)"}
 
-Idea base a considerar: "${idea}"
+Base idea to consider: "${idea}"
 
-Da tu perspectiva desde tu rol (${spec.role}). Sé breve, concreto y aporta valor diferencial.`;
+Give your perspective from your role (${spec.role}). Be brief, specific, and add differential value.`;
 
   const completion = await openai.chat.completions.create({
     model,
@@ -41,11 +41,11 @@ async function summarize(idea: string, transcript: Utterance[]) {
   const openai = getOpenAI();
   const model = getModelFor("moderator");
 
-  const content = `Debate completo sobre la idea: "${idea}"
+  const content = `Complete debate on the idea: "${idea}"
 
 ${renderTranscript(transcript)}
 
-Sintetiza el debate completo en un plan accionable y claro siguiendo tu rol de Moderador.`;
+Synthesize the entire debate into a clear, actionable plan following your Moderator role.`;
 
   const completion = await openai.chat.completions.create({
     model,

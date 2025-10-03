@@ -5,7 +5,7 @@ import { runDebate } from "@/lib/debate";
 export const dynamic = "force-dynamic";
 
 const BodySchema = z.object({
-  idea: z.string().min(10, "La idea debe tener al menos 10 caracteres."),
+  idea: z.string().min(10, "The idea must be at least 10 characters long."),
   rounds: z.number().int().min(1).max(5).optional(),
 });
 
@@ -19,9 +19,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ transcript, summary });
   } catch (err: any) {
     if (err?.issues) {
-      return NextResponse.json({ error: err.issues?.[0]?.message || "Solicitud inválida" }, { status: 400 });
+      return NextResponse.json({ error: err.issues?.[0]?.message || "Invalid request" }, { status: 400 });
     }
     console.error("/api/discuss error", err);
-    return NextResponse.json({ error: err?.message || "Error interno" }, { status: 500 });
+    return NextResponse.json({ error: err?.message || "Internal error" }, { status: 500 });
   }
 }

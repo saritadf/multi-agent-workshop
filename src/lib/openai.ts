@@ -3,7 +3,7 @@ import OpenAI from "openai";
 export function getOpenAI() {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
-    throw new Error("Falta OPENAI_API_KEY en variables de entorno.");
+    throw new Error("OPENAI_API_KEY is missing from environment variables.");
   }
   return new OpenAI({ apiKey });
 }
