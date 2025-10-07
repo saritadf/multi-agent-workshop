@@ -30,7 +30,7 @@ export default function Page() {
       const data: DebateResult = await res.json();
       setResult(data);
     } catch (err: any) {
-      setError(err.message || "Error inesperado");
+      setError(err.message || "Unexpected error");
     } finally {
       setLoading(false);
     }
@@ -38,9 +38,9 @@ export default function Page() {
 
   return (
     <main>
-      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Multi‑Agente: Taller de Producto</h1>
+      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Multi-Agent: Product Workshop</h1>
       <p style={{ color: "#555", marginBottom: 24 }}>
-        Ingresa una idea. Cinco agentes (Developer, Designer, Project Manager, Product Manager y Business Director) debaten y un Moderador sintetiza un plan.
+        Enter an idea. Five agents (Developer, Designer, Project Manager, Product Manager, and Business Director) debate, and a Moderator synthesizes a plan.
       </p>
 
       <form onSubmit={onSubmit} style={{ display: "grid", gap: 12, marginBottom: 24 }}>
@@ -52,12 +52,12 @@ export default function Page() {
             value={idea}
             onChange={(e) => setIdea(e.target.value)}
             rows={5}
-            placeholder="Ej.: Una app que conecta seniors con mentores para aprender habilidades digitales."
+            placeholder="E.g.: An app that connects seniors with mentors to learn digital skills."
             style={{ width: "100%", padding: 12, fontSize: 14 }}
           />
         </label>
         <label>
-          <div style={{ fontWeight: 600, marginBottom: 6 }}>Rondas</div>
+          <div style={{ fontWeight: 600, marginBottom: 6 }}>Rounds</div>
           <input
             type="number"
             min={1}
@@ -68,7 +68,7 @@ export default function Page() {
           />
         </label>
         <button disabled={loading} style={{ padding: "10px 14px", fontWeight: 600 }}>
-          {loading ? "Ejecutando debate…" : "Ejecutar debate"}
+          {loading ? "Running debate…" : "Run debate"}
         </button>
       </form>
 
@@ -89,7 +89,7 @@ export default function Page() {
             </div>
           </div>
           <div>
-            <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Resumen del Moderador</h2>
+            <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Moderator Summary</h2>
             <div style={{ whiteSpace: "pre-wrap", background: "#f5fbff", padding: 12, border: "1px solid #e1f0ff" }}>
               {result.summary}
             </div>
