@@ -1,5 +1,5 @@
 export interface MockupData {
-  type?: 'website' | 'mobile' | 'desktop' | 'wireframe' | 'architecture' | 'planning' | 'product' | 'business' | 'summary' | 'figma';
+  type?: 'website' | 'mobile' | 'desktop' | 'wireframe' | 'frontend' | 'backend' | 'architecture' | 'planning' | 'product' | 'business' | 'summary' | 'figma';
   description?: string;
   imageUrl?: string;
   prompt?: string;

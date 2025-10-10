@@ -1,5 +1,5 @@
 import { getOpenAI, getModelFor, AIProvider } from "./openai";
-import { ROLES, MODERATOR, AgentSpec } from "./roles";
+import { ROLES, MODERATOR, AgentSpec } from "./professional-roles";
 
 export interface DebateInput {
   idea: string;

@@ -351,6 +351,28 @@ export default function Page() {
                           </div>
                         )}
                         
+                        {u.mockupData.type === 'frontend' && (
+                          <div>
+                            <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: 600 }}>🎨 Frontend Development</h4>
+                            <div style={{ fontSize: "13px" }}>
+                              <div><strong>Technologies:</strong> {u.mockupData.technologies?.join(', ')}</div>
+                              <div><strong>Timeline:</strong> {u.mockupData.timeline}</div>
+                              <div><strong>Complexity:</strong> {u.mockupData.complexity}</div>
+                            </div>
+                          </div>
+                        )}
+                        
+                        {u.mockupData.type === 'backend' && (
+                          <div>
+                            <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: 600 }}>⚙️ Backend Development</h4>
+                            <div style={{ fontSize: "13px" }}>
+                              <div><strong>Technologies:</strong> {u.mockupData.technologies?.join(', ')}</div>
+                              <div><strong>Timeline:</strong> {u.mockupData.timeline}</div>
+                              <div><strong>Complexity:</strong> {u.mockupData.complexity}</div>
+                            </div>
+                          </div>
+                        )}
+                        
                         {u.mockupData.type === 'architecture' && (
                           <div>
                             <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: 600 }}>⚙️ Technical Architecture</h4>
@@ -600,25 +622,6 @@ export default function Page() {
               fontWeight: 500
             }}>
               {currentStatus}
-            </div>
-          )}
-          
-          {summary && (
-            <div>
-              <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Moderator Summary</h2>
-              <div style={{ 
-                background: "#f8fafc", 
-                padding: 20, 
-                border: "1px solid #e2e8f0", 
-                borderRadius: "12px",
-                fontSize: "15px",
-                lineHeight: "1.6"
-              }}>
-                <div 
-                  dangerouslySetInnerHTML={{ __html: formatMarkdown(summary) }}
-                  style={{ color: "#334155" }}
-                />
-              </div>
             </div>
           )}
         </section>
